@@ -8,7 +8,8 @@ module.exports = {
   getStudent,
   getStudents,
   createUser,
-  getInstruments
+  getInstruments,
+  getLocations
 }
 
 function getTeachers (testConn) {
@@ -39,4 +40,9 @@ function createUser(data, testConn){
 function getInstruments(testConn) {
   const conn = testConn || connection
   return conn('instruments')
+}
+
+function getLocations(testConn) {
+  const conn = testConn || connection
+  return conn('location')
 }

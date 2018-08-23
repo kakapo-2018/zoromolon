@@ -58,8 +58,13 @@ router.get('/profile/teacher/:id', (req, res) => {
 router.get('/new', (req, res) => {
   db.getInstruments()
     .then(instrumentData => {
-      console.log(instrumentData)
-      res.render('sign-up', {instrumentData: instrumentData})
+      db.getLocations()
+      .then( locationData => {
+        console.log("i ", instrumentData)
+        console.log("l ", locationData)
+        res.render('sign-up', {instrumentData: instrumentData, locationData: locationData})
+      })
+      
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -75,7 +80,6 @@ router.post('/new', (req, res) => {
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
-
 })
 
 module.exports = router

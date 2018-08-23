@@ -10,21 +10,26 @@ Sign up new user form here:
 
   <div class="create"><input placeholder="name" type="text" name="name" /></div>
 
-  <div class="create"><input placeholder="name" type="email" name="email" /></div>
+  <div class="create"><input placeholder="email" type="email" name="email" /></div>
 
   <div class="create"><input placeholder="phone" type="text" name="phone" /></div>
 
-  I play: <select name="instument_id" size="1">
+  I play: <select name="instrument_id" size="1">
     {{#each instrumentData}}
       <option value={{id}}>{{name}}</option>
     {{/each}}
   </select>
 
+  <br>
+
+   I live at: <select name="location_id" size="1">
+    {{#each locationData}}
+      <option value={{id}}>{{suburb}}</option>
+    {{/each}}
+  </select>
+
 
   <div class="create"><input placeholder="Biography" type="text" name="bio" /></div>
-
-  <div class="create"><input placeholder="Location" type="text" name="location" /></div>
-
 
   <div class="create"><input placeholder="image url" type="url" name="image_url" /></div>
 
