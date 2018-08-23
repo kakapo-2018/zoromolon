@@ -1,1 +1,35 @@
 Sign up new user form here:
+
+<form action="/new" accept-charset="UTF-8" method="post">
+
+  I am a: <select name="accountType" size="1">
+    <option value="1">Teacher</option>
+    <option value="2">Student</option>
+  </select>
+
+
+  <div class="create"><input placeholder="name" type="text" name="name" /></div>
+
+  <div class="create"><input placeholder="name" type="email" name="email" /></div>
+
+  <div class="create"><input placeholder="phone" type="text" name="phone" /></div>
+
+  I play: <select name="instument_id" size="1">
+    {{#each instrumentData}}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+  </select>
+
+
+  <div class="create"><input placeholder="Biography" type="text" name="bio" /></div>
+
+  <div class="create"><input placeholder="Location" type="text" name="location" /></div>
+
+
+  <div class="create"><input placeholder="image url" type="url" name="image_url" /></div>
+
+  <div class="create"><input  type="submit" value="Submit" /></div>
+  
+  
+  
+</form>

@@ -6,7 +6,9 @@ module.exports = {
   getTeacher,
   getTeachers,
   getStudent,
-  getStudents
+  getStudents,
+  createUser,
+  getInstruments
 }
 
 function getTeachers (testConn) {
@@ -27,4 +29,14 @@ function getStudents (testConn) {
 function getStudent (id, testConn) {
   const conn = testConn || connection
   return conn('students').where('id', id).first()
+}
+
+function createUser(data, testConn){
+  const conn = testConn || connection
+  return conn('teachers').where('id', 1).first()
+}
+
+function getInstruments(testConn) {
+  const conn = testConn || connection
+  return conn('instruments')
 }
