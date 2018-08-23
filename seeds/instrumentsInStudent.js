@@ -6,7 +6,7 @@ exports.seed = function (knex, Promise) {
         {student_id: 2, instrument_id: 2},
         {student_id: 3, instrument_id: 3},
         {student_id: 4, instrument_id: 4},
-        {student_id: 6, instrument_id: 2},
+        {student_id: 1, instrument_id: 2},
         {student_id: 5, instrument_id: 5}
       ])
     })
