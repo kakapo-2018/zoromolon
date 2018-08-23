@@ -1,6 +1,25 @@
-{{#each students}}
+{{>headerStudent}}
+
+
+{{!-- {{#each students}}
 <ul>
   <li>{{name}}</li>
 </ul>
 
-{{/each}}
+{{/each}} --}}
+<br>
+<br>
+
+I would like to learn to play: <br>
+
+  <form action="students" method="post">
+    <p>guitar<input type="checkbox" value="guitar" name="guitar" id="1"></p>
+    <p>drums</drums><input type="checkbox" name="drums" id="2"></p>
+    <p>voilin<input type="checkbox" name="violin" id="3"></p>
+    <p>cello<input type="checkbox" name="cello" id="4"></p>
+    <p>ukele<input type="checkbox" name="ukelele" id="5"></p>
+    <p>flute</flute><input type="checkbox" name="flute" id="6"></p>
+
+    <input type="button" value="Select">
+
+</form>
