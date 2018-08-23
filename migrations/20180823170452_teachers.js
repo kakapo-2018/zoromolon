@@ -6,7 +6,7 @@ exports.up = (knex, Promise) => {
     table.string('phone'),
     table.integer('instrument_id'),
     table.string('bio'),
-    table.string('location'),
+    table.string('location_id'),
     table.string('image_url')
   })
 }
