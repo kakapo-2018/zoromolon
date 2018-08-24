@@ -92,14 +92,30 @@ router.post('/teacherlist', (req, res) => {
   console.log("instrument ID", req.body.instrument_id)
   db.getTeacherInstruments(req.body.instrument_id)
   .then(listOfTeachers => {
-    console.log("id", listOfTeachers)
-    res.render('teacherlist', {listOfTeachers : listOfTeachers})
+    db.getStudents()
+    .then(students => {
+    console.log("list",  {listOfTeachers : listOfTeachers, students : students})
+    res.render('teacherlist', {listOfTeachers : listOfTeachers, students : students})
         })
+      })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
 
+router.post('/bookingrequest', (req, res) => {
+  console.log(req.body)
+  let request = {student_id: req.body.name, teacher_id: req.body.teacher_id, request:req.body.request }
+  
+  console.log(request)
+
+  db.getBookingRequest(req.body.listOfStudents.teacher_id)
+  .then(listOfStudents => {
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+})
+})
 
 
 

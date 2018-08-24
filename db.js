@@ -10,7 +10,8 @@ module.exports = {
   createUser,
   getInstruments,
   getLocations,
-  getTeacherInstruments
+  getTeacherInstruments,
+  getBookingRequest
 }
 
 function getTeachers (testConn) {
@@ -79,4 +80,12 @@ function getTeacherInstruments(id, testConn) {
   .join('teachers', 'instruments.id', '=', 'instrument_id')
   .where('instruments.id', '=', id)
   .select()
+}
+
+function getBookingRequest(id, testConn) {
+  const conn = testConn || connection
+  return conn ('teachers')
+  .where('teachers.id', '=', 'id')
+  .select()
+  .first()
 }
