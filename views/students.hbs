@@ -12,14 +12,15 @@
 
 I would like to learn to play: <br>
 
-  <form action="students" method="post">
-    <p>guitar<input type="checkbox" value="guitar" name="guitar" id="1"></p>
-    <p>drums</drums><input type="checkbox" name="drums" id="2"></p>
-    <p>voilin<input type="checkbox" name="violin" id="3"></p>
-    <p>cello<input type="checkbox" name="cello" id="4"></p>
-    <p>ukele<input type="checkbox" name="ukelele" id="5"></p>
-    <p>flute</flute><input type="checkbox" name="flute" id="6"></p>
+  <form action="/teacherlist" method="post">
 
-    <input type="button" value="Select">
+  I play: <select name="instrument_id" size="1">
+    {{#each instrumentData}}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+  </select>
+  <div class="create"><input  type="submit" value="Submit" /></div>
+  
+  
 
 </form>

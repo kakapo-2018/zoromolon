@@ -9,7 +9,8 @@ module.exports = {
   getStudents,
   createUser,
   getInstruments,
-  getLocations
+  getLocations,
+  getTeacherInstruments
 }
 
 function getTeachers (testConn) {
@@ -70,4 +71,12 @@ function getInstruments(testConn) {
 function getLocations(testConn) {
   const conn = testConn || connection
   return conn('location')
+}
+
+function getTeacherInstruments(id, testConn) {
+  const conn = testConn || connection
+  return conn ('instruments')
+  .join('teachers', 'instruments.id', '=', 'instrument_id')
+  .where('instruments.id', '=', id)
+  .select()
 }
