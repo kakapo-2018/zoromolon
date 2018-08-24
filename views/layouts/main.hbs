@@ -14,46 +14,42 @@
 <body>
   <div class="w3-content w3-section" style="max-width:500px">
 
-  <p>Slide FadingTest</p>
+    <img class="mySlides w3-animate-fading" src="images/guitar1.jpg" style="width:100%">
+    <img class="mySlides w3-animate-fading" src="images/guitar2.jpg" style="width:100%">
+    <img class="mySlides w3-animate-fading" src="images/guitar3.jpg" style="width:100%">
+    <img class="mySlides w3-animate-fading" src="images/guitar2.jpg" style="width:100%">
 
-  <img class="mySlides w3-animate-fading" src="/public/images/guitar1.jpg" style="width:100%">
-  <img class="mySlides w3-animate-fading" src="/public/images/guitar2.jpg" style="width:100%">
-  <img class="mySlides w3-animate-fading" src="/public/images/guitar3.jpg" style="width:100%">
-  <img class="mySlides w3-animate-fading" src="/public/images/guitar2.jpg" style="width:100%">
-
-</div>
-
-<script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 9000);    
-}
-</script>
-
-<h1>Zolomolon</h1>
-<br>
-
-</div>
-<br>
-<div class="container" >
-  <div class="jumbotron" >
-    {{{body}}}
   </div>
 
-</div>
+  <script>
+  var myIndex = 0;
+  carousel();
 
+  function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      x[myIndex-1].style.display = "block";  
+      setTimeout(carousel, 9000);    
+  }
+  </script>
+
+  <h1>Zoromolon</h1>
+<br>
+
+<br>
+  <div class="container" >
+    <div class="jumbotron" >
+      {{{body}}}
+    </div>
+  </div>
 </body>
-  </html>
+
+</html>
 
 
 
