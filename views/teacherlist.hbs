@@ -1,6 +1,5 @@
 
 
-  <form action="/bookingrequest" method="post">
 
   {{>headerStudent}}
 <br>
@@ -10,11 +9,9 @@ The following teachers offer lessons for your chosen instrument:
 {{#each listOfTeachers}}
 
 <ul>
-  <b>{{name}}</b><br>
+  <b>{{name}}</b>
+  <br>
   {{bio}}
-  <div class='col-md-12 refresh-button'>
-        <a href="/" type='button' class='btn btn-lg btn-success'>Request Booking</a>
-</div>
  </ul>
 {{/each}}
 
