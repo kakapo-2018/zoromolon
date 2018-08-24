@@ -52,8 +52,7 @@ router.get('/profile/teacher/:id', (req, res) => {
   let id = req.params.id;
   db.getTeacher(id)
     .then(profile => {
-      console.log(profile);
-      res.render('profile', {profile: profile})
+      res.render('profile', {profile: Number(profile)})
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
