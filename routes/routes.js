@@ -40,7 +40,6 @@ router.get('/profile/student/:id', (req, res) => {
   let id = req.params.id;
   db.getStudent(id)
     .then(profile => {
-      console.log(profile);
       res.render('profile', {profile: profile})
     })
     .catch(err => {
@@ -52,7 +51,9 @@ router.get('/profile/teacher/:id', (req, res) => {
   let id = req.params.id;
   db.getTeacher(id)
     .then(profile => {
-      res.render('profile', {profile: Number(profile)})
+      let profilID = Number({profile : profile})
+      // console.log(profile[0].id)
+      res.render('profile', profilID)
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -64,8 +65,6 @@ router.get('/new', (req, res) => {
     .then(instrumentData => {
       db.getLocations()
       .then( locationData => {
-        console.log("i ", instrumentData)
-        console.log("l ", locationData)
         res.render('sign-up', {instrumentData: instrumentData, locationData: locationData})
       })
       
@@ -76,7 +75,6 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-  console.log(req.body)
   let typeOfProfile = req.body.accountType
 
   db.createUser(req.body).then(newUserID => {
