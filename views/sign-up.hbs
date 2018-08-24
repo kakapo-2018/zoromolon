@@ -3,8 +3,8 @@ Sign up new user form here:
 <form action="/new" accept-charset="UTF-8" method="post">
 
   I am a: <select name="accountType" size="1">
-    <option value="1">Teacher</option>
-    <option value="2">Student</option>
+    <option value="teacher">Teacher</option>
+    <option value="student">Student</option>
   </select>
 
 
@@ -14,7 +14,7 @@ Sign up new user form here:
 
   <div class="create"><input placeholder="phone" type="text" name="phone" /></div>
 
-  I play: <select name="instument_id" size="1">
+  I play: <select name="instrument_id" size="1">
     {{#each instrumentData}}
       <option value={{id}}>{{name}}</option>
     {{/each}}
