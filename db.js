@@ -48,7 +48,7 @@ function addDataToStudents(data, testConn){
   const conn = testConn || connection
   delete data.accountType
   return conn ('students')
-  .insert(data)
+  .insert(data, 'id')
   .then((thisID) => {
     return thisID
 })
@@ -58,7 +58,7 @@ function addDataToTeachers(data, testConn){
   const conn = testConn || connection
   delete data.accountType
   return conn ('teachers')
-  .insert(data)
+  .insert(data, 'id')
   .then((thisID) => {
     return thisID
 })

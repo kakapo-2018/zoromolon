@@ -52,7 +52,6 @@ router.get('/profile/teacher/:id', (req, res) => {
   db.getTeacher(id)
     .then(profile => {
       let profilID = Number({profile : profile})
-      // console.log(profile[0].id)
       res.render('profile', profilID)
     })
     .catch(err => {
