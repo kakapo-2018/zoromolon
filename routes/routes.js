@@ -73,9 +73,10 @@ router.get('/new', (req, res) => {
 
 router.post('/new', (req, res) => {
   console.log(req.body)
+  let typeOfProfile = req.body.accountType
 
-  db.createUser(req.body).then(newUserData => {
-    res.render('sign-up')
+  db.createUser(req.body).then(newUserID => {
+    res.redirect('profile/'+typeOfProfile+'/'+newUserID)
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
