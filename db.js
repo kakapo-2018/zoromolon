@@ -10,7 +10,8 @@ module.exports = {
   createUser,
   getInstruments,
   getLocations,
-  getTeacherInstruments
+  getTeacherInstruments,
+  getBookingRequest
 }
 
 function getTeachers (testConn) {
@@ -47,7 +48,7 @@ function addDataToStudents(data, testConn){
   const conn = testConn || connection
   delete data.accountType
   return conn ('students')
-  .insert(data)
+  .insert(data, 'id')
   .then((thisID) => {
     return thisID
 })
@@ -57,7 +58,7 @@ function addDataToTeachers(data, testConn){
   const conn = testConn || connection
   delete data.accountType
   return conn ('teachers')
-  .insert(data)
+  .insert(data, 'id')
   .then((thisID) => {
     return thisID
 })
@@ -79,4 +80,12 @@ function getTeacherInstruments(id, testConn) {
   .join('teachers', 'instruments.id', '=', 'instrument_id')
   .where('instruments.id', '=', id)
   .select()
+}
+
+function getBookingRequest(id, testConn) {
+  const conn = testConn || connection
+  return conn ('teachers')
+  .where('teachers.id', '=', 'id')
+  .select()
+  .first()
 }
