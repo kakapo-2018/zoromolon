@@ -35,10 +35,10 @@ function getStudent (id, testConn) {
 
 function createUser(data, testConn){
   const conn = testConn || connection
-  if (data.accountType == 1){
+  if (data.accountType == 'teacher'){
   return addDataToTeachers(data)
   }
-  else if (data.accountType == 2){
+  else if (data.accountType == 'student'){
   return addDataToStudents(data)
   }
 }
