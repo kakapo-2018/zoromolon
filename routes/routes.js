@@ -20,11 +20,16 @@ router.get('/teachers', (req, res) => {
 })
 
 router.get('/students', (req, res) => {
-  db.getStudents()
-    .then(students => {
-      console.log(students);
-      res.render('students', {students: students})
+  db.getInstruments()
+    .then(instrumentData => { 
+      db.getStudents()
+      .then(students => {
+        console.log(students);
+        res.render('students', {instrumentData: instrumentData, students: students})
+      })
+
     })
+
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
@@ -81,5 +86,22 @@ router.post('/new', (req, res) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
+
+router.post('/teacherlist', (req, res) => {
+  console.log("instrument ID", req.body.instrument_id)
+  db.getTeacherInstruments(req.body.instrument_id)
+  .then(listOfTeachers => {
+    console.log("id", listOfTeachers)
+    res.render('teacherlist', {listOfTeachers : listOfTeachers})
+        })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
+
+
+
+
 
 module.exports = router
