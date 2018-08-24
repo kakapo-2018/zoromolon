@@ -3,8 +3,8 @@ Sign up new user form here:
 <form action="/new" accept-charset="UTF-8" method="post">
 
   I am a: <select name="accountType" size="1">
-    <option value="1">Teacher</option>
-    <option value="2">Student</option>
+    <option value="teacher">Teacher</option>
+    <option value="student">Student</option>
   </select>
 
 
@@ -20,14 +20,11 @@ Sign up new user form here:
     {{/each}}
   </select>
 
-  <br>
-
-   I live at: <select name="location_id" size="1">
+ I live in suburb: <select name="location_id" size="1">
     {{#each locationData}}
       <option value={{id}}>{{suburb}}</option>
     {{/each}}
   </select>
-
 
   <div class="create"><input placeholder="Biography" type="text" name="bio" /></div>
 

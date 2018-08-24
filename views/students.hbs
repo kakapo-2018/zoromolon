@@ -1,6 +1,26 @@
-{{#each students}}
+{{>headerStudent}}
+
+
+{{!-- {{#each students}}
 <ul>
   <li>{{name}}</li>
 </ul>
 
-{{/each}}
+{{/each}} --}}
+<br>
+<br>
+
+I would like to learn to play: <br>
+
+  <form action="/teacherlist" method="post">
+
+  I play: <select name="instrument_id" size="1">
+    {{#each instrumentData}}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+  </select>
+  <div class="create"><input  type="submit" value="Submit" /></div>
+  
+  
+
+</form>

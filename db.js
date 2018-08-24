@@ -9,7 +9,8 @@ module.exports = {
   getStudents,
   createUser,
   getInstruments,
-  getLocations
+  getLocations,
+  getTeacherInstruments
 }
 
 function getTeachers (testConn) {
@@ -34,7 +35,32 @@ function getStudent (id, testConn) {
 
 function createUser(data, testConn){
   const conn = testConn || connection
-  return conn('teachers').where('id', 1).first()
+  if (data.accountType == 'teacher'){
+  return addDataToTeachers(data)
+  }
+  else if (data.accountType == 'student'){
+  return addDataToStudents(data)
+  }
+}
+
+function addDataToStudents(data, testConn){
+  const conn = testConn || connection
+  delete data.accountType
+  return conn ('students')
+  .insert(data)
+  .then((thisID) => {
+    return thisID
+})
+}
+
+function addDataToTeachers(data, testConn){
+  const conn = testConn || connection
+  delete data.accountType
+  return conn ('teachers')
+  .insert(data)
+  .then((thisID) => {
+    return thisID
+})
 }
 
 function getInstruments(testConn) {
@@ -45,4 +71,12 @@ function getInstruments(testConn) {
 function getLocations(testConn) {
   const conn = testConn || connection
   return conn('location')
+}
+
+function getTeacherInstruments(id, testConn) {
+  const conn = testConn || connection
+  return conn ('instruments')
+  .join('teachers', 'instruments.id', '=', 'instrument_id')
+  .where('instruments.id', '=', id)
+  .select()
 }
